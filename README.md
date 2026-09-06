@@ -2,8 +2,7 @@
 
 Sistema de busca e respostas fundamentadas sobre serviços públicos municipais e estaduais de São Luís/MA, implementado em microsserviços desacoplados utilizando a arquitetura RAG (Retrieval-Augmented Generation).
 
-O projeto combina busca semântica em banco vetorial (PostgreSQL + pgvector) com geração restrita de respostas via LLM (Google Gemini), garantindo rastreabilidade das fontes e prevenindo alucinações através de injeção estrita de contexto.
-
+O projeto combina busca semântica em banco vetorial (PostgreSQL + pgvector) com geração restrita de respostas via LLM (Google Gemini), garantindo rastreabilidade das fontes e prevenindo alucinações por meio de injeção estrita de contexto.
 
 ---
 
@@ -43,8 +42,8 @@ O sistema é dividido em três componentes principais:
 ### Componentes
 
 - **API Gateway (`gateway/`)**: Desenvolvido em Node.js com TypeScript e Express. Centraliza a entrada pública, validação de requisições, controle de taxa, observabilidade e documentação OpenAPI.
-- **AI Service (`ai-service/`)**: Microsserviço Python com FastAPI. Realiza a inferência de embeddings localmente através do modelo `sentence-transformers/all-MiniLM-L6-v2` (384 dimensões), executa a busca vetorial no pgvector e orquestra a geração de resposta com o Google Gemini.
-- **PostgreSQL com pgvector**: Persistência de dados relacionais e vetoriais, utilizando índice HNSW (`vector_cosine_ops`) para busca por similaridade em sub-segundo.
+- **AI Service (`ai-service/`)**: Microsserviço Python com FastAPI. Realiza a inferência de embeddings localmente por meio do modelo `sentence-transformers/all-MiniLM-L6-v2` (384 dimensões), executa a busca vetorial no pgvector e orquestra a geração de resposta com o Google Gemini.
+- **PostgreSQL com pgvector**: Persistência de dados relacionais e vetoriais, utilizando índice HNSW (`vector_cosine_ops`) para busca por similaridade em frações de segundo.
 
 ---
 
@@ -62,7 +61,7 @@ O sistema é dividido em três componentes principais:
 
 1. Clone o repositório e acesse o diretório:
 ```bash
-git clone https://github.com/seu-usuario/rag-servicos-publicos.git
+git clone https://github.com/Coelho-G-Dev/rag-servicos-publicos.git
 cd rag-servicos-publicos
 ```
 
@@ -100,7 +99,7 @@ LOG_LEVEL=INFO
 
 ## Execução com Docker Compose
 
-1. Inicie todos os containers (Banco, AI Service e Gateway):
+1. Inicie todos os contêineres (Banco, AI Service e Gateway):
 ```bash
 docker-compose up -d --build
 ```
@@ -165,7 +164,7 @@ curl -X POST http://localhost:3000/api/v1/chat \
 }
 ```
 
-### 2. Consulta fora do domínio (Comportamento anti-alucinação)
+### 2. Consulta fora do domínio (Comportamento antialucinação)
 
 ```bash
 curl -X POST http://localhost:3000/api/v1/chat \
@@ -246,7 +245,7 @@ O repositório possui o manifesto [render.yaml](render.yaml) configurado para pr
 
 ## Evoluções Técnicas Planejadas
 
-- **Reranking com Cross-Encoder:** Inclusão de modelo `cross-encoder/ms-marco-MiniLM-L-6-v2` pós-recuperação vetorial para refinamento do ordenamento dos trechos antes do envio ao LLM.
+- **Reranking com Cross-Encoder:** Inclusão do modelo `cross-encoder/ms-marco-MiniLM-L-6-v2` pós-recuperação vetorial para refinamento do ordenamento dos trechos antes do envio ao LLM.
 - **Busca Híbrida (Hybrid Search):** Combinação de busca vetorial densa com busca textual esparsa (`tsvector` / `tsquery`) no PostgreSQL via Reciprocal Rank Fusion (RRF).
 - **Cache Semântico:** Implementação de cache de perguntas frequentes baseado em similaridade vetorial prévia (Redis com RediSearch) para redução de latência e consumo de tokens.
-- **Filtro Geoespacial:** Integração com extensão PostGIS para ordenação e filtro por proximidade geográfica das unidades de atendimento.
+- **Filtro Geoespacial:** Integração com a extensão PostGIS para ordenação e filtro por proximidade geográfica das unidades de atendimento.
