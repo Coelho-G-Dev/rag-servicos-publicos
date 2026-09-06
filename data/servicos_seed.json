@@ -1,0 +1,317 @@
+[
+  {
+    "id": "sau-001",
+    "nome": "Unidade Mista do Itaqui-Bacanga",
+    "categoria": "Saúde",
+    "descricao": "Atendimento ambulatorial, consultas de clínica médica, pediatria, vacinação de rotina e urgência básica para a região Itaqui-Bacanga.",
+    "endereco": "Av. dos Portugueses, s/n - Vila Bacanga, São Luís - MA, 65080-805"
+  },
+  {
+    "id": "sau-002",
+    "nome": "UPA Vinhais",
+    "categoria": "Saúde",
+    "descricao": "Unidade de Pronto Atendimento 24h para emergências clínicas e pediátricas de média complexidade, estabilização de pacientes e exames de urgência.",
+    "endereco": "Av. Jerônimo de Albuquerque, s/n - Vinhais, São Luís - MA, 65074-220"
+  },
+  {
+    "id": "sau-003",
+    "nome": "Hospital Municipal Djalma Marques (Socorrão I)",
+    "categoria": "Saúde",
+    "descricao": "Hospital de urgência e emergência de referência estadual e municipal para traumas graves, neurocirurgia e atendimento cirúrgico 24 horas.",
+    "endereco": "Rua do Passeio, s/n - Centro, São Luís - MA, 65015-370"
+  },
+  {
+    "id": "sau-004",
+    "nome": "Hospital Municipal Dr. Clementino Moura (Socorrão II)",
+    "categoria": "Saúde",
+    "descricao": "Atendimento hospitalar 24h especializado em urgências e emergências clínicas e cirúrgicas para a zona metropolitana e rural de São Luís.",
+    "endereco": "Av. Tancredo Neves, s/n - Cidade Operária, São Luís - MA, 65058-200"
+  },
+  {
+    "id": "sau-005",
+    "nome": "Centro de Saúde Amar",
+    "categoria": "Saúde",
+    "descricao": "Unidade Básica de Saúde voltada à saúde da família, pré-natal, odontologia preventiva, distribuição de medicamentos e acompanhamento de hipertensos e diabéticos.",
+    "endereco": "Rua Projetada, 14 - Vicente Fialho, São Luís - MA, 65073-100"
+  },
+  {
+    "id": "sau-006",
+    "nome": "UBS Bairro de Fátima",
+    "categoria": "Saúde",
+    "descricao": "Atenção primária com programas de imunização, puericultura, citologia oncótica, curativos e dispensação de medicação básica pelo Farmácia Popular.",
+    "endereco": "Rua da Paz, 45 - Bairro de Fátima, São Luís - MA, 65030-005"
+  },
+  {
+    "id": "sau-007",
+    "nome": "Centro de Saúde Cohab Anil III",
+    "categoria": "Saúde",
+    "descricao": "Consultas com clínico geral, ginecologia, pediatria, triagem neonatal, testes rápidos de infecções e aplicação de vacinas do calendário nacional.",
+    "endereco": "Av. Contorno, s/n - Cohab Anil III, São Luís - MA, 65051-210"
+  },
+  {
+    "id": "sau-008",
+    "nome": "Hospital da Criança Dr. Odorico Amaral de Mattos",
+    "categoria": "Saúde",
+    "descricao": "Atendimento pediátrico especializado municipal de urgência, emergência, internação clínica pediátrica e UTI neonatal.",
+    "endereco": "Rua da Estrela, s/n - Alemanha, São Luís - MA, 65036-670"
+  },
+  {
+    "id": "sau-009",
+    "nome": "Maternidade Maria do Amparo",
+    "categoria": "Saúde",
+    "descricao": "Maternidade pública com atendimento humanizado ao parto de risco habitual, alojamento conjunto e atendimento de urgência obstétrica.",
+    "endereco": "Av. João Pessoa, 120 - Anil, São Luís - MA, 65046-000"
+  },
+  {
+    "id": "sau-010",
+    "nome": "UPA Cidade Operária",
+    "categoria": "Saúde",
+    "descricao": "Unidade de Pronto Atendimento 24h para suporte clínico rápido, suturas, nebulização e leitos de observação para até 24 horas.",
+    "endereco": "Av. Principal, s/n - Cidade Operária, São Luís - MA, 65058-000"
+  },
+  {
+    "id": "sau-011",
+    "nome": "UBS Liberdade",
+    "categoria": "Saúde",
+    "descricao": "Posto de saúde comunitário com equipes do Saúde da Família, agentes comunitários de saúde, vacinação, vacinas infantis e preventivo.",
+    "endereco": "Rua Newton Prado, s/n - Liberdade, São Luís - MA, 65035-430"
+  },
+  {
+    "id": "sau-012",
+    "nome": "Centro de Controle de Zoonoses de São Luís (CCZ)",
+    "categoria": "Saúde",
+    "descricao": "Serviços de vacinação antirrábica animal gratuita, castração solidária de cães e gatos, diagnóstico de leishmaniose e controle de vetores de arboviroses.",
+    "endereco": "Estrada de Ribamar, Km 04, s/n - Forquilha, São Luís - MA, 65054-000"
+  },
+  {
+    "id": "edu-001",
+    "nome": "UEB Darcy Ribeiro",
+    "categoria": "Educação",
+    "descricao": "Unidade de Educação Básica municipal com turmas do ensino fundamental I e II, biblioteca comunitária, quadra poliesportiva e sala de recursos multifuncionais.",
+    "endereco": "Av. dos Franceses, 250 - Sacavém, São Luís - MA, 65040-000"
+  },
+  {
+    "id": "edu-002",
+    "nome": "UEB Gomes de Sousa",
+    "categoria": "Educação",
+    "descricao": "Escola municipal de ensino fundamental com programas de reforço de letramento, alfabetização de jovens e adultos (EJA) e projetos de educação ambiental.",
+    "endereco": "Rua Direita, 80 - Vila Nova, São Luís - MA, 65085-060"
+  },
+  {
+    "id": "edu-003",
+    "nome": "UEB Maria José Aragão",
+    "categoria": "Educação",
+    "descricao": "Escola pública de tempo integral e referência municipal em artes, teatro pedagógico, robótica e atividades extracurriculares.",
+    "endereco": "Praça das Mangueiras, s/n - Cidade Operária, São Luís - MA, 65058-150"
+  },
+  {
+    "id": "edu-004",
+    "nome": "Creche Municipal Menino Jesus",
+    "categoria": "Educação",
+    "descricao": "Educação infantil integral para crianças de 6 meses a 3 anos de idade, com alimentação balanceada, acompanhamento nutricional e estímulo psicomotor.",
+    "endereco": "Rua do Norte, 105 - Madre Deus, São Luís - MA, 65025-380"
+  },
+  {
+    "id": "edu-005",
+    "nome": "UEB Senador Miguel Lins",
+    "categoria": "Educação",
+    "descricao": "Escola da rede municipal com foco no ensino fundamental dos anos finais, laboratório de informática educativa e quadra coberta.",
+    "endereco": "Rua 07, s/n - Ipem São Cristóvão, São Luís - MA, 65055-140"
+  },
+  {
+    "id": "edu-006",
+    "nome": "UEB Bandeira Tribuzi",
+    "categoria": "Educação",
+    "descricao": "Unidade de ensino fundamental com projetos de incentivo à leitura maranhense, educação inclusiva com intérpretes de Libras e merenda escolar supervisionada.",
+    "endereco": "Av. Senador Vitorino Freire, 1100 - Jaracaty, São Luís - MA, 65076-820"
+  },
+  {
+    "id": "edu-007",
+    "nome": "Creche Municipal Criança Feliz - Coroadinho",
+    "categoria": "Educação",
+    "descricao": "Atendimento à primeira infância em período parcial e integral, desenvolvimento lúdico e apoio pedagógico às famílias da comunidade do Coroadinho.",
+    "endereco": "Rua da Vitória, 12 - Coroadinho, São Luís - MA, 65042-450"
+  },
+  {
+    "id": "edu-008",
+    "nome": "UEB Laura Rosa",
+    "categoria": "Educação",
+    "descricao": "Ensino fundamental anos iniciais, sala de informática conectada ao programa Escola Digital e atividades esportivas de contraturno.",
+    "endereco": "Rua Grande, 200 - São Bento/Vila Embratel, São Luís - MA, 65081-300"
+  },
+  {
+    "id": "edu-009",
+    "nome": "UEB Rubem Almeida",
+    "categoria": "Educação",
+    "descricao": "Unidade municipal que atende do 1º ao 9º ano, desenvolvendo clubes de ciências, xadrez nas escolas e apoio psicossocial aos estudantes.",
+    "endereco": "Av. Projetada, 33 - Coroado, São Luís - MA, 65041-610"
+  },
+  {
+    "id": "edu-010",
+    "nome": "Escola Municipal Cidade Olímpica",
+    "categoria": "Educação",
+    "descricao": "Escola pública com ampla infraestrutura, turmas regulares do ensino fundamental, reforço de matemática e programa de horta comunitária escolar.",
+    "endereco": "Rua 15, Quadra 40 - Cidade Olímpica, São Luís - MA, 65058-850"
+  },
+  {
+    "id": "soc-001",
+    "nome": "CRAS Coroadinho",
+    "categoria": "Assistência Social",
+    "descricao": "Centro de Referência de Assistência Social: inscrição e atualização do CadÚnico, Bolsa Família, emissão de certidões e serviço PAIF.",
+    "endereco": "Av. Amália Saldanha, 25 - Coroadinho, São Luís - MA, 65042-300"
+  },
+  {
+    "id": "soc-002",
+    "nome": "CRAS Cidade Operária",
+    "categoria": "Assistência Social",
+    "descricao": "Atendimento socioassistencial a famílias em vulnerabilidade, orientações sobre Tarifa Social de Energia, Carteira do Idoso e passe livre municipal.",
+    "endereco": "Unidade 201, Casa 18 - Cidade Operária, São Luís - MA, 65058-050"
+  },
+  {
+    "id": "soc-003",
+    "nome": "CRAS Anil",
+    "categoria": "Assistência Social",
+    "descricao": "Acolhimento de famílias, serviços de convivência e fortalecimento de vínculos para crianças e idosos, e suporte para benefícios eventuais (cesta de alimentos e auxílio natalidade).",
+    "endereco": "Rua Santo Antônio, 54 - Anil, São Luís - MA, 65046-240"
+  },
+  {
+    "id": "soc-004",
+    "nome": "CRAS Centro",
+    "categoria": "Assistência Social",
+    "descricao": "Unidade do CadÚnico no Centro Histórico, atendimento especializado a famílias moradoras de ocupações, encaminhamento para programas de moradia popular e benefícios sociais.",
+    "endereco": "Rua do Sol, 320 - Centro, São Luís - MA, 65020-590"
+  },
+  {
+    "id": "soc-005",
+    "nome": "CREAS Centro-Sul",
+    "categoria": "Assistência Social",
+    "descricao": "Centro de Referência Especializado de Assistência Social: apoio a vítimas de violência doméstica, violação de direitos, exploração e medidas socioeducativas em meio aberto.",
+    "endereco": "Rua de Santana, 180 - Centro, São Luís - MA, 65015-430"
+  },
+  {
+    "id": "soc-006",
+    "nome": "Centro POP São Luís",
+    "categoria": "Assistência Social",
+    "descricao": "Centro de Referência Especializado para População em Situação de Rua: banho, guarda de pertences, café da manhã, almoço, emissão de documentos e apoio psicossocial.",
+    "endereco": "Rua das Crioulas, 89 - Centro, São Luís - MA, 65025-190"
+  },
+  {
+    "id": "soc-007",
+    "nome": "Restaurante Popular do Anjo da Guarda",
+    "categoria": "Assistência Social",
+    "descricao": "Serviço de segurança alimentar fornecendo refeições balanceadas (almoço e jantar) ao custo simbólico de R$ 1,00, além de oficinas de aproveitamento integral de alimentos.",
+    "endereco": "Praça do Anjo, s/n - Anjo da Guarda, São Luís - MA, 65085-780"
+  },
+  {
+    "id": "soc-008",
+    "nome": "CRAS Bairro de Fátima",
+    "categoria": "Assistência Social",
+    "descricao": "Orientação e inclusão no Cadastro Único, programas de juventude, grupos de artesanato para mulheres e mediação familiar preventiva.",
+    "endereco": "Rua Deputado João Henrique, 15 - Bairro de Fátima, São Luís - MA, 65030-220"
+  },
+  {
+    "id": "soc-009",
+    "nome": "CRAS Maracanã",
+    "categoria": "Assistência Social",
+    "descricao": "Atendimento à população da zona rural de São Luís, inscrição em programas para agricultores familiares, auxílio gás e emissão de BPC para idosos e PCDs.",
+    "endereco": "Estrada da Vitória, Km 2 - Maracanã, São Luís - MA, 65095-200"
+  },
+  {
+    "id": "cul-001",
+    "nome": "Teatro Arthur Azevedo",
+    "categoria": "Cultura",
+    "descricao": "Segundo teatro mais antigo do Brasil, espaço de apresentações de teatro clássico, dança, festivais de música e visitas guiadas históricas com agendamento prévio.",
+    "endereco": "Rua do Sol, 180 - Centro, São Luís - MA, 65020-590"
+  },
+  {
+    "id": "cul-002",
+    "nome": "Centro de Criatividade Odylo Costa, filho",
+    "categoria": "Cultura",
+    "descricao": "Espaço cultural multifuncional com cinema de arte, teatro comunitário, biblioteca pública de artes, oficinas de fotografia, gravura e cerâmica.",
+    "endereco": "Rampa do Comércio, 200 - Praia Grande, São Luís - MA, 65010-670"
+  },
+  {
+    "id": "cul-003",
+    "nome": "Museu Histórico e Artístico do Maranhão",
+    "categoria": "Cultura",
+    "descricao": "Solar histórico do século XIX com acervo de mobiliário de época, porcelanas finas, pinacoteca com obras maranhenses e documentação histórica da cidade.",
+    "endereco": "Rua do Sol, 302 - Centro, São Luís - MA, 65020-590"
+  },
+  {
+    "id": "cul-004",
+    "nome": "Casa das Tulhas (Mercado da Praia Grande)",
+    "categoria": "Cultura",
+    "descricao": "Mercado centenário e patrimônio cultural gastronômico com venda de cachaça de tiquira, farinha d'água, camarão seco, doces típicos de buriti e artesanato de guarnicê.",
+    "endereco": "Rua da Estrela, s/n - Centro Histórico, São Luís - MA, 65010-200"
+  },
+  {
+    "id": "cul-005",
+    "nome": "Convento das Mercês (Fundação da Memória Republicana)",
+    "categoria": "Cultura",
+    "descricao": "Conjunto arquitetônico colonial do século XVII que abriga museu da história republicana, acervo de arte sacra, biblioteca especializada e eventos acadêmicos.",
+    "endereco": "Rua da Palma, 502 - Desterro, São Luís - MA, 65010-440"
+  },
+  {
+    "id": "cul-006",
+    "nome": "Biblioteca Pública Benedito Leite",
+    "categoria": "Cultura",
+    "descricao": "Uma das maiores bibliotecas públicas do Nordeste, com acervo de obras raras, jornais históricos digitalizados, sala Braille e espaço infantil para contação de histórias.",
+    "endereco": "Praça Deodoro, s/n - Centro, São Luís - MA, 65020-180"
+  },
+  {
+    "id": "cul-007",
+    "nome": "Centro de Cultura Popular Domingos Vieira Filho (Casa do Bumba Meu Boi)",
+    "categoria": "Cultura",
+    "descricao": "Museu etnográfico dedicado às tradições populares do Maranhão, indumentárias do Bumba Meu Boi dos sotaques de matraca, orquestra, zabumba e costa de mão.",
+    "endereco": "Rua do Giz, 221 - Praia Grande, São Luís - MA, 65010-250"
+  },
+  {
+    "id": "cul-008",
+    "nome": "Casa do Tambor de Crioula",
+    "categoria": "Cultura",
+    "descricao": "Espaço de salvaguarda do Tambor de Crioula do Maranhão, com oficinas de confecção de parelhas de tambores, apresentações públicas semanais e rodas de conversa.",
+    "endereco": "Rua da Estrela, 300 - Centro Histórico, São Luís - MA, 65010-200"
+  },
+  {
+    "id": "cul-009",
+    "nome": "Palacete Gentil Braga",
+    "categoria": "Cultura",
+    "descricao": "Casarão colonial do século XIX revestido de azulejos portugueses, sede de eventos da UFMA, exposições temporárias, festivais de artes e concertos de câmara.",
+    "endereco": "Rua Grande, 782 - Centro, São Luís - MA, 65020-250"
+  },
+  {
+    "id": "cid-001",
+    "nome": "Viva Procon - Shopping da Ilha",
+    "categoria": "Cidadania",
+    "descricao": "Emissão de RG (CIN), CPF, Carteira de Trabalho digital, alistamento militar, seguro-desemprego, atendimento do Detran e defesa do consumidor.",
+    "endereco": "Av. Daniel de La Touche, 987 - Maranhão Novo, São Luís - MA, 65061-021"
+  },
+  {
+    "id": "cid-002",
+    "nome": "Terminal de Integração da Praia Grande",
+    "categoria": "Cidadania",
+    "descricao": "Terminal central de transporte coletivo urbano conectando o Centro Histórico aos bairros das zonas oeste, sul e litoral, com guichês de recarga do Bilhete Único.",
+    "endereco": "Av. Senador Vitorino Freire, s/n - Praia Grande, São Luís - MA, 65010-650"
+  },
+  {
+    "id": "cid-003",
+    "nome": "Terminal de Integração da Cohab / Cohatrac",
+    "categoria": "Cidadania",
+    "descricao": "Ponto nodal de transporte coletivo integrado que atende moradores das regiões Cohab, Cohatrac, Forquilha e Turu, com banheiros acessíveis e bicicletário público.",
+    "endereco": "Av. Jerônimo de Albuquerque, s/n - Cohab Anil I, São Luís - MA, 65050-420"
+  },
+  {
+    "id": "cid-004",
+    "nome": "Viva Procon - Golden Shopping Calhau",
+    "categoria": "Cidadania",
+    "descricao": "Posto unificado de atendimento ao cidadão para emissão de certidões, registro civil, agendamento de CNH, orientação jurídica rápida e protocolo de reclamações consumeristas.",
+    "endereco": "Av. dos Holandeses, 200 - Calhau, São Luís - MA, 65071-380"
+  },
+  {
+    "id": "cid-005",
+    "nome": "Parque Estadual do Bacanga - Centro de Educação Ambiental",
+    "categoria": "Cidadania",
+    "descricao": "Área de preservação ambiental com trilhas ecológicas monitoradas, nascentes do Rio Bacanga, sítios arqueológicos das olarias coloniais e oficinas ambientais para escolas.",
+    "endereco": "Estrada do Engenho, s/n - Maracanã/Bacanga, São Luís - MA, 65095-100"
+  }
+]

@@ -1,0 +1,78 @@
+# ==============================================================================
+# RENDER BLUEPRINT (render.yaml)
+# Orquestração de Deploy completa para o projeto rag-servicos-publicos no Render.
+# Cria:
+#   1. PostgreSQL gerenciado (rag-postgres) com pgvector nativo
+#   2. AI Service (Python / FastAPI em Docker) com embeddings locais
+#   3. Gateway Público (Node.js / TypeScript) com Swagger UI e observabilidade
+# ==============================================================================
+
+databases:
+  - name: rag-postgres
+    databaseName: rag_db
+    user: rag_user
+    plan: free
+    region: oregon
+    ipAllowList: []
+
+services:
+  # --- AI Service (FastAPI + pgvector + all-MiniLM-L6-v2 + Gemini) ---
+  - type: web
+    name: rag-ai-service
+    env: docker
+    dockerContext: ./ai-service
+    dockerfilePath: ./ai-service/Dockerfile
+    plan: starter
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: rag-postgres
+          property: connectionString
+      - key: INTERNAL_API_SECRET
+        generateValue: true
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL_NAME
+        value: gemini-1.5-flash
+      - key: EMBEDDING_MODEL_NAME
+        value: all-MiniLM-L6-v2
+      - key: TOP_K_RESULTS
+        value: "4"
+      - key: LOG_LEVEL
+        value: INFO
+
+  # --- Gateway Público (Express + TypeScript + Swagger UI) ---
+  - type: web
+    name: rag-gateway
+    env: node
+    rootDir: gateway
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        fromDatabase:
+          name: rag-postgres
+          property: connectionString
+      - key: AI_SERVICE_URL
+        fromService:
+          type: web
+          name: rag-ai-service
+          property: host
+      - key: INTERNAL_API_SECRET
+        fromService:
+          type: web
+          name: rag-ai-service
+          envVarKey: INTERNAL_API_SECRET
+      - key: RATE_LIMIT_WINDOW_MS
+        value: "60000"
+      - key: RATE_LIMIT_MAX
+        value: "100"
