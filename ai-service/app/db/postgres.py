@@ -13,7 +13,7 @@ def get_pool() -> ConnectionPool:
     global _pool
     if _pool is None or _pool.closed:
         settings = get_settings()
-        db_url = settings.get_database_url()
+        db_url = settings.get_database_url().strip()
         logger.info("db_pool_init", host=settings.POSTGRES_HOST, db=settings.POSTGRES_DB)
         _pool = ConnectionPool(
             conninfo=db_url,
@@ -43,9 +43,10 @@ def get_db_connection() -> Generator[psycopg.Connection, None, None]:
 
 
 def check_db_health() -> bool:
-    """Executa um ping simples no banco para checar conectividade."""
+    """Executa um ping simples no banco para checar conectividade com timeout seguro."""
     try:
-        with get_db_connection() as conn:
+        pool = get_pool()
+        with pool.connection(timeout=3.0) as conn:
             with conn.cursor() as cur:
                 cur.execute("SELECT 1;")
                 return cur.fetchone() is not None

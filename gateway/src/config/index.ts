@@ -17,14 +17,14 @@ function normalizeServiceUrl(url?: string): string {
 }
 
 export const config = {
-  PORT: parseInt(process.env.PORT || "3000", 10),
-  NODE_ENV: process.env.NODE_ENV || "development",
+  PORT: parseInt((process.env.PORT || "3000").trim(), 10),
+  NODE_ENV: (process.env.NODE_ENV || "development").trim(),
   AI_SERVICE_URL: normalizeServiceUrl(process.env.AI_SERVICE_URL),
-  INTERNAL_API_SECRET: process.env.INTERNAL_API_SECRET || "super-secret-internal-key",
+  INTERNAL_API_SECRET: (process.env.INTERNAL_API_SECRET || "super-secret-internal-key").trim(),
   
-  DATABASE_URL: process.env.DATABASE_URL || "postgresql://rag_user:rag_password@localhost:5432/rag_db",
+  DATABASE_URL: (process.env.DATABASE_URL || "postgresql://rag_user:rag_password@localhost:5432/rag_db").trim(),
   
-  RATE_LIMIT_WINDOW_MS: parseInt(process.env.RATE_LIMIT_WINDOW_MS || "60000", 10),
-  RATE_LIMIT_MAX: parseInt(process.env.RATE_LIMIT_MAX || "100", 10),
+  RATE_LIMIT_WINDOW_MS: parseInt((process.env.RATE_LIMIT_WINDOW_MS || "60000").trim(), 10),
+  RATE_LIMIT_MAX: parseInt((process.env.RATE_LIMIT_MAX || "100").trim(), 10),
 };
 

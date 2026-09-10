@@ -1,5 +1,6 @@
 from functools import lru_cache
 from typing import Optional
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -31,9 +32,16 @@ class Settings(BaseSettings):
         extra="ignore"
     )
 
+    @field_validator("DATABASE_URL", "INTERNAL_API_SECRET", "GEMINI_API_KEY", "LOG_LEVEL", mode="before")
+    @classmethod
+    def strip_env_vars(cls, v):
+        if isinstance(v, str):
+            return v.strip()
+        return v
+
     def get_database_url(self) -> str:
         if self.DATABASE_URL:
-            return self.DATABASE_URL
+            return self.DATABASE_URL.strip()
         return (
             f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@"
             f"{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
