@@ -29,7 +29,7 @@ export const createHealthController = (pgPool?: Pool) => {
     }
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 2000);
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
     try {
       const resp = await fetch(`${config.AI_SERVICE_URL}/health`, {
         signal: controller.signal,

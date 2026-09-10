@@ -37,7 +37,7 @@ export class AIServiceClient {
     logger.info({ request_id: requestId, url }, "calling_ai_service");
 
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 25000);
+    const timeout = setTimeout(() => controller.abort(), 60000);
 
     try {
       const response = await fetch(url, {
