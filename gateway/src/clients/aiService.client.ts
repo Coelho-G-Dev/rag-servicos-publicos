@@ -63,10 +63,12 @@ export class AIServiceClient {
       const data = (await response.json()) as AIServiceResponse;
       return data;
     } catch (error: any) {
+      const cause = error.cause ? ` [${error.cause.code || error.cause.message || error.cause}]` : "";
+      logger.error({ request_id: requestId, error: `${error.message}${cause}`, url: this.baseUrl }, "ai_service_call_failed");
       if (error.name === "AbortError") {
-        throw new Error("Timeout ao aguardar resposta do AI Service.");
+        throw new Error(`Timeout ao aguardar resposta do AI Service (${this.baseUrl}).`);
       }
-      throw error;
+      throw new Error(`Falha na comunicação com o AI Service (${this.baseUrl}): ${error.message}${cause}`);
     } finally {
       clearTimeout(timeout);
     }

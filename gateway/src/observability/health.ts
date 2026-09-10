@@ -37,7 +37,8 @@ export const createHealthController = (pgPool?: Pool) => {
       aiServiceStatus = resp.ok ? "connected" : `degraded (${resp.status})`;
       if (!resp.ok) isReady = false;
     } catch (err: any) {
-      aiServiceStatus = `unreachable: ${err.message}`;
+      const cause = err.cause ? ` [${err.cause.code || err.cause.message || err.cause}]` : "";
+      aiServiceStatus = `unreachable (${config.AI_SERVICE_URL}): ${err.message}${cause}`;
       isReady = false;
     } finally {
       clearTimeout(timeoutId);
