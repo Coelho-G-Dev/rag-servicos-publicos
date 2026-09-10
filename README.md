@@ -225,21 +225,30 @@ pytest -m integration
 
 ---
 
-## Deploy no Render
+## Deploy em Produção (100% Gratuito)
 
-O repositório possui o manifesto [render.yaml](render.yaml) configurado para provisionamento automático (Blueprint):
+O projeto está configurado para deploy sem custos utilizando o **Neon.tech** (PostgreSQL Serverless com `pgvector` nativo permanente) e o **Render** (Microsserviços em plano Free via Blueprint):
 
-1. Acesse o painel do [Render](https://dashboard.render.com/) e selecione **New +** > **Blueprint**.
-2. Conecte o repositório deste projeto.
-3. O Render identificará automaticamente os 3 recursos descritos no manifesto:
-   - `rag-postgres`: Banco de dados PostgreSQL gerenciado com suporte a extensões.
-   - `rag-ai-service`: Microsserviço Python em container Docker.
+1. Crie uma conta gratuita no [Neon.tech](https://neon.tech) e obtenha sua string de conexão (`DATABASE_URL`).
+2. Acesse o painel do [Render](https://dashboard.render.com/) e selecione **New +** > **Blueprint**.
+3. Conecte o repositório deste projeto.
+4. O Render identificará automaticamente os 2 microsserviços gratuitos definidos em [render.yaml](render.yaml):
+   - `rag-ai-service`: Microsserviço Python em container Docker otimizado (PyTorch CPU).
    - `rag-gateway`: Serviço web Node.js com build TypeScript e Swagger integrado.
-4. Defina o valor da variável `GEMINI_API_KEY` na interface do Render.
-5. Após o término da implantação, abra o console/shell do serviço `rag-ai-service` e execute o script de carga inicial.:
-   ```bash
-   python scripts/ingest.py
-   ```
+5. Preencha as duas variáveis solicitadas na interface:
+   - `DATABASE_URL`: String de conexão do Neon (`postgresql://...`).
+   - `GEMINI_API_KEY`: Chave da API do Google AI Studio / Gemini.
+6. Clique em **Apply**. O deploy ocorrerá sem solicitação de meio de pagamento.
+7. Execute a ingestão dos dados para carregar os serviços e embeddings vetoriais:
+   - Pela máquina local:
+     ```bash
+     DATABASE_URL="sua_url_neon" python ai-service/scripts/ingest.py
+     ```
+   - Ou pelo Shell do `rag-ai-service` no Render:
+     ```bash
+     python scripts/ingest.py
+     ```
+
 
 ---
 
