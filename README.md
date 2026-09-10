@@ -236,7 +236,7 @@ O repositório possui o manifesto [render.yaml](render.yaml) configurado para pr
    - `rag-ai-service`: Microsserviço Python em container Docker.
    - `rag-gateway`: Serviço web Node.js com build TypeScript e Swagger integrado.
 4. Defina o valor da variável `GEMINI_API_KEY` na interface do Render.
-5. Após o término da implantação, abra o console/shell do serviço `rag-ai-service` e execute o script de carga inicial:
+5. Após o término da implantação, abra o console/shell do serviço `rag-ai-service` e execute o script de carga inicial.:
    ```bash
    python scripts/ingest.py
    ```
