@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     SIMILARITY_THRESHOLD: float = 0.3
 
     GEMINI_API_KEY: Optional[str] = ""
-    GEMINI_MODEL_NAME: str = "gemini-1.5-flash"
+    GEMINI_MODEL_NAME: str = "gemini-2.5-flash"
 
     model_config = SettingsConfigDict(
         env_file=".env",

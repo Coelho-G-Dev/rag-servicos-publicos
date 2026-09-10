@@ -74,15 +74,29 @@ class AnswerGenerator:
             f"Resposta fundamentada:"
         )
 
-        try:
-            response = self._model.generate_content(prompt)
-            if response and response.text:
-                return response.text.strip()
-            return "Não foi possível gerar uma resposta detalhada no momento."
-        except Exception as e:
-            logger.error("gemini_generation_error", error=str(e))
-            rag_llm_errors_total.labels(error_type=type(e).__name__).inc()
-            raise RuntimeError(f"Erro na comunicação com o Gemini: {e}") from e
+        models_to_try = [self.model_name, "gemini-2.5-flash", "gemini-flash-latest", "gemini-pro-latest"]
+        unique_models = list(dict.fromkeys(models_to_try))
+
+        last_error = None
+        for m_name in unique_models:
+            try:
+                model = genai.GenerativeModel(m_name)
+                response = model.generate_content(prompt)
+                if response and response.text:
+                    return response.text.strip()
+            except Exception as e:
+                logger.warning("gemini_model_attempt_failed", model=m_name, error=str(e))
+                last_error = e
+
+        logger.error("all_gemini_models_failed_using_grounded_fallback", error=str(last_error))
+        if last_error:
+            rag_llm_errors_total.labels(error_type=type(last_error).__name__).inc()
+
+        summary_services = [f"• **{c['nome']}** ({c['categoria']}) - {c['endereco']}: {c['descricao']}" for c in chunks]
+        return (
+            f"Encontrei as seguintes opções oficiais em nossa base de serviços de São Luís:\n\n"
+            + "\n\n".join(summary_services)
+        )
 
 
 def get_generator() -> AnswerGenerator:
