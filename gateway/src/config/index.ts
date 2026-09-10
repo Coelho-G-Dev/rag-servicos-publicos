@@ -8,12 +8,16 @@ function normalizeServiceUrl(url?: string): string {
   if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
     return trimmed.replace(/\/+$/, "");
   }
-  // Se for hostname interno (ex: rag-ai-service:8000 ou localhost:8000)
-  if (trimmed.includes("localhost") || trimmed.includes("127.0.0.1") || trimmed.includes(":") || !trimmed.includes(".")) {
+  // Se for hostname local ou interno com porta (ex: localhost:8000, 127.0.0.1:8000, service:8000)
+  if (trimmed.includes("localhost") || trimmed.includes("127.0.0.1") || trimmed.includes(":")) {
     return `http://${trimmed}`.replace(/\/+$/, "");
   }
-  // Se for domínio externo completo (ex: app.onrender.com)
-  return `https://${trimmed}`.replace(/\/+$/, "");
+  // Se for domínio com ponto (ex: meu-servico.onrender.com)
+  if (trimmed.includes(".")) {
+    return `https://${trimmed}`.replace(/\/+$/, "");
+  }
+  // Se for um identificador curto de serviço no Render (ex: rag-ai-service-jsd6)
+  return `https://${trimmed}.onrender.com`;
 }
 
 export const config = {
