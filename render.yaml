@@ -37,7 +37,7 @@ services:
     name: rag-gateway
     env: node
     rootDir: gateway
-    buildCommand: npm install && npm run build
+    buildCommand: npm install --include=dev && npm run build
     startCommand: npm start
     plan: free
     region: oregon
