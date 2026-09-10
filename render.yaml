@@ -1,19 +1,8 @@
 # ==============================================================================
-# RENDER BLUEPRINT (render.yaml)
-# Orquestração de Deploy completa para o projeto rag-servicos-publicos no Render.
-# Cria:
-#   1. PostgreSQL gerenciado (rag-postgres) com pgvector nativo
-#   2. AI Service (Python / FastAPI em Docker) com embeddings locais
-#   3. Gateway Público (Node.js / TypeScript) com Swagger UI e observabilidade
+# RENDER BLUEPRINT (render.yaml) - 100% GRATUITO / SEM CARTÃO DE CRÉDITO
+# Orquestração para o projeto rag-servicos-publicos utilizando PostgreSQL
+# gratuito do Neon.tech / Supabase (pgvector nativo).
 # ==============================================================================
-
-databases:
-  - name: rag-postgres
-    databaseName: rag_db
-    user: rag_user
-    plan: free
-    region: oregon
-    ipAllowList: []
 
 services:
   # --- AI Service (FastAPI + pgvector + all-MiniLM-L6-v2 + Gemini) ---
@@ -22,16 +11,14 @@ services:
     env: docker
     dockerContext: ./ai-service
     dockerfilePath: ./ai-service/Dockerfile
-    plan: starter
+    plan: free
     region: oregon
     healthCheckPath: /health
     envVars:
       - key: PORT
         value: "8000"
       - key: DATABASE_URL
-        fromDatabase:
-          name: rag-postgres
-          property: connectionString
+        sync: false
       - key: INTERNAL_API_SECRET
         generateValue: true
       - key: GEMINI_API_KEY
@@ -59,11 +46,12 @@ services:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 10000
+        value: "10000"
       - key: DATABASE_URL
-        fromDatabase:
-          name: rag-postgres
-          property: connectionString
+        fromService:
+          type: web
+          name: rag-ai-service
+          envVarKey: DATABASE_URL
       - key: AI_SERVICE_URL
         fromService:
           type: web
