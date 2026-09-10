@@ -45,7 +45,22 @@ export const createApp = (deps?: AppDependencies): Express => {
     res.send(swaggerSpec);
   });
 
-  const healthController = createHealthController(deps?.pgPool);
+  const isProduction = config.NODE_ENV === "production";
+  const needsSsl =
+    isProduction &&
+    !config.DATABASE_URL.includes("localhost") &&
+    !config.DATABASE_URL.includes("@postgres:");
+
+  const pool =
+    deps?.pgPool ||
+    (!deps?.servicesController
+      ? new Pool({
+          connectionString: config.DATABASE_URL,
+          ...(needsSsl ? { ssl: { rejectUnauthorized: false } } : {}),
+        })
+      : undefined);
+
+  const healthController = createHealthController(pool);
   app.get("/health", healthController.getHealth);
   app.get("/ready", healthController.getReady);
 
@@ -64,8 +79,13 @@ export const createApp = (deps?: AppDependencies): Express => {
 
   let servicesController = deps?.servicesController;
   if (!servicesController) {
-    const pool = deps?.pgPool || new Pool({ connectionString: config.DATABASE_URL });
-    const repo = new ServicesRepository(pool);
+    const activePool =
+      pool ||
+      new Pool({
+        connectionString: config.DATABASE_URL,
+        ...(needsSsl ? { ssl: { rejectUnauthorized: false } } : {}),
+      });
+    const repo = new ServicesRepository(activePool);
     const service = new ServicesService(repo);
     servicesController = new ServicesController(service);
   }

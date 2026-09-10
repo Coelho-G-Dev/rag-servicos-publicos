@@ -20,11 +20,15 @@ export class AIServiceClient {
   private secret: string;
 
   constructor(baseUrl?: string, secret?: string) {
-    let rawUrl = baseUrl || config.AI_SERVICE_URL;
+    let rawUrl = (baseUrl || config.AI_SERVICE_URL).trim();
     if (rawUrl && !rawUrl.startsWith("http://") && !rawUrl.startsWith("https://")) {
-      rawUrl = `https://${rawUrl}`;
+      if (rawUrl.includes("localhost") || rawUrl.includes("127.0.0.1") || rawUrl.includes(":") || !rawUrl.includes(".")) {
+        rawUrl = `http://${rawUrl}`;
+      } else {
+        rawUrl = `https://${rawUrl}`;
+      }
     }
-    this.baseUrl = rawUrl;
+    this.baseUrl = rawUrl.replace(/\/+$/, "");
     this.secret = secret || config.INTERNAL_API_SECRET;
   }
 
